@@ -1,16 +1,15 @@
-//
-// Created by 이재관 on 2022/10/27.
-//
-
 #include <iostream>
 #include <array>
 
 using namespace std;
 
-void print(array<int,5> arr){
-    for(auto ele : arr)
-        cout<<ele<<" ";
-}
+template <size_t N>
+void print(const array<int, N>& arr);
+
+//void print(array<int,5> arr){
+//    for(auto ele : arr)
+//        cout<<ele<<", ";
+//}
 
 int main(){
     array<int, 10> arr1;
@@ -38,7 +37,15 @@ int main(){
     }
 
     array<int, 5 > arr = {1,2,3,4,5};
-    print(arr);
+//    for(auto element : arr){
+//        cout << element <<" ";
+//    }
+//begin 함수는 시작 end함수는 마지막
+    for(auto it = arr.begin(); it != arr.end(); it++){
+        auto element = (*it);
+        cout <<element<<" ";
+    }
+
 
     return 0;
 }
